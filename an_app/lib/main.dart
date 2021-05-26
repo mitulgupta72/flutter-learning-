@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './question.dart';
-import './anawer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    const questions = [
+    const _questions = [
       {
         'questionText': "who is your favorate player",
         'answers': ['virat', 'dhoni', 'sachin', 'rahul'],
@@ -39,22 +39,15 @@ class _MyAppState extends State<MyApp> {
       },
     ];
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('my first app'),
-        ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(questions[_questionIndex]['questionText']),
-                  ...(questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Anawer(_answerQuestion, answer);
-                  }).toList()
-                ],
-              )
-            : Center(child: Text('you are done here')),
-      ),
-    );
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('my first app'),
+            ),
+            body: _questionIndex < _questions.length
+                ? Quiz(
+                    answerQuestion: _answerQuestion,
+                    questionIndex: _questionIndex,
+                    questions: _questions)
+                : Result()));
   }
 }

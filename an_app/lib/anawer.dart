@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Anawer extends StatelessWidget {
   final selectHandler;
-  final String answerText;
+  final answerText;
   Anawer(this.selectHandler, this.answerText);
   @override
   Widget build(BuildContext context) {

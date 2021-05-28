@@ -30,7 +30,7 @@ class Result extends StatelessWidget {
           FlatButton(
             textColor: Colors.blue,
             onPressed: resetHandler,
-            child: Text('restart quiz'),
+            child: Text('restart'),
           )
         ],
       ),
